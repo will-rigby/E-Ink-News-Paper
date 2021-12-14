@@ -70,12 +70,27 @@ namespace TheABCNews
             return new Colour(rDif, gDif, bDif);
         }
 
+        private int Bound(int upper, int lower, int value)
+        {
+            if (value < lower)
+            {
+                return lower;
+            }
+            if (value > upper)
+            {
+                return upper;
+            }
+            return value;
+        }
+
         private Colour CalculateDitherForCell(Colour oldPixel, Colour quantError, Double transformFraction)
         {
             int red = oldPixel.red + Convert.ToInt32(quantError.red * transformFraction);
+            red = Bound(255, 0, red);
             int green = oldPixel.green + Convert.ToInt32(quantError.green * transformFraction);
+            green = Bound(255, 0, green);
             int blue = oldPixel.blue + Convert.ToInt32(quantError.blue * transformFraction);
-
+            blue = Bound(255, 0, blue);
             return new Colour(red, green, blue);
         }
 
