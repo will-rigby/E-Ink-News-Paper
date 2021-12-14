@@ -44,7 +44,7 @@ namespace TheABCNews
             palette.Add(green);
             palette.Add(blue);
             palette.Add(white);
-            palette.Add(black);
+            //palette.Add(black);
             
             FloydSteinberg fs = new FloydSteinberg(palette);
             Image ditheredImage = fs.Dither(image);

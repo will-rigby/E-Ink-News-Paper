@@ -52,9 +52,9 @@ namespace TheABCNews
 
         private int MagnitudeQuantError(Colour colA, Colour colB)
         {
-            Double rDif = colA.red - colB.red;
-            Double gDif = colA.green - colB.green;
-            Double bDif = colA.blue -  colB.blue;
+            Double rDif = (colA.red - colB.red);
+            Double gDif = (colA.green - colB.green);
+            Double bDif = (colA.blue -  colB.blue);
 
             Double result = Math.Sqrt((rDif*rDif)+(gDif*gDif)+(bDif*bDif));
 
@@ -86,11 +86,11 @@ namespace TheABCNews
         private Colour CalculateDitherForCell(Colour oldPixel, Colour quantError, Double transformFraction)
         {
             int red = oldPixel.red + Convert.ToInt32(quantError.red * transformFraction);
-            red = Bound(255, 0, red);
+            //red = Bound(255, 0, red);
             int green = oldPixel.green + Convert.ToInt32(quantError.green * transformFraction);
-            green = Bound(255, 0, green);
+            //green = Bound(255, 0, green);
             int blue = oldPixel.blue + Convert.ToInt32(quantError.blue * transformFraction);
-            blue = Bound(255, 0, blue);
+            //blue = Bound(255, 0, blue);
             return new Colour(red, green, blue);
         }
 
